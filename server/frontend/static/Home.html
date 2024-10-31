@@ -16,6 +16,24 @@
     <link rel="stylesheet" href="static/home.css" />
   </head>
   <body onload="checkSession()">
+    <script>
+      let logout_url = window.location.origin+"/djangoapp/logout";
+    const res = await fetch(logout_url, {
+      method: "GET",
+    });
+  
+    const json = await res.json();
+    if (json) {
+      let username = sessionStorage.getItem('username');
+      sessionStorage.removeItem('username');
+      window.location.href = window.location.origin;
+      window.location.reload();
+      alert("Logging out "+username+"...")
+    }
+    else {
+      alert("The user could not be logged out.")
+    }
+    </script>
     <!-- Full-Page Hero Section -->
     <div
       class="hero"
@@ -82,7 +100,7 @@
                 <a href="/login" style="color: white; margin-right: 10px"
                   >Login</a
                 >
-                <a href="/register" style="color: white">Register</a>
+                <a  href="/register" style="color: white">Register</a>
               </div>
             </span>
           </div>
