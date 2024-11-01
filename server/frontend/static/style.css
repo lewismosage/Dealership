@@ -52,6 +52,10 @@ img{
   flex-direction: row;
   justify-content: flex-end;
 }
+.loginlink a {
+  text-decoration: none; 
+  color: white; 
+}
 
 .banner{
   display: flex;
