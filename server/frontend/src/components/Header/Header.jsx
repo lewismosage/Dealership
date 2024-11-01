@@ -44,23 +44,29 @@ if ( curr_user !== null &&  curr_user !== "") {
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
+
               <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   <li class="nav-item">
                     <a class="nav-link active" style={{fontSize: "larger"}} aria-current="page" href="/">Home</a>
                   </li>
+
                   <li class="nav-item">
                     <a class="nav-link" style={{fontSize: "larger"}} href="/about">About Us</a>
                   </li>
+
                   <li class="nav-item">
                     <a class="nav-link" style={{fontSize: "larger"}} href="/contact">Contact Us</a>
                   </li>
                 </ul>
+                
                 <span class="navbar-text">
                   <div class="loginlink" id="loginlogout">
-                  {home_page_items}
+                    <a href="/login" class="btn btn-sm">Sign In</a>
+                    <a href="/register" class="btn btn-sm">Sign Up</a>
                   </div>
-                  </span>
+                </span>
+
               </div>
             </div>
           </nav>

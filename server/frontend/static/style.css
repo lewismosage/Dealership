@@ -41,20 +41,28 @@ img{
   padding:5px;
 }
 
-.homepage_links{
-  color:  rgb(97, 64, 128);
-  padding: 25%;
-  font-size: larger;
-  }
+
   
 .loginlink{
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+  color: white;
 }
+/* Remove underline, add button styling, set text color to white */
 .loginlink a {
-  text-decoration: none; 
+  text-decoration: none;
   color: white; 
+  background-color: white; 
+  padding: 5px 10px; 
+  font-size: 0.9rem; 
+  border-radius: 5px;
+  margin-right: 5px; 
+  transition: background-color 0.3s;
+}
+
+.loginlink a:hover {
+  background-color: grey; /* Darkens on hover */
 }
 
 .banner{
@@ -94,6 +102,9 @@ img{
   color: black;
   align-self: center;
 }
+.navbar-text{
+  color: white;
+}
 
 .username{
   font: 30px sans-serif;
@@ -127,4 +138,19 @@ img{
     border-radius:50px;
     text-align:center;
     box-shadow: 2px 2px 3px #999;  
+}
+
+.btn-black {
+  background-color: gray; 
+  color: white; 
+  padding: 5px 10px; 
+  text-decoration: none; 
+  border: none; 
+  border-radius: 5px; 
+  font-size: 0.9rem; 
+  transition: background-color 0.3s; 
+}
+
+.btn-black:hover {
+  background-color: darkgray; 
 }
