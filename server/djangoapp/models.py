@@ -9,28 +9,29 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 # <HINT> Create a Car Make model `class CarMake(models.Model)`:
 class CarMake(models.Model):
     name = models.CharField(max_length=100)
-    description = models.TextField(blank=True)
-    # Add any other fields you’d like, such as country of origin, founded date, etc.
+    description = models.TextField()
+    # Other fields as needed
 
     def __str__(self):
-        return self.name 
-    
+        return self.name  # Return the name as the string representation
 
 # <HINT> Create a Car Model model `class CarModel(models.Model):`:
 class CarModel(models.Model):
-    CAR_TYPE_CHOICES = [
+    car_make = models.ForeignKey(CarMake, on_delete=models.CASCADE)  # Many-to-One relationship
+    name = models.CharField(max_length=100)
+    CAR_TYPES = [
         ('SEDAN', 'Sedan'),
         ('SUV', 'SUV'),
         ('WAGON', 'Wagon'),
-        ('COUPE', 'Coupe'),
-        # Add other types as needed
+        # Add more choices as required
     ]
-
-    car_make = models.ForeignKey(CarMake, on_delete=models.CASCADE, related_name="models")
-    name = models.CharField(max_length=100)
-    type = models.CharField(max_length=10, choices=CAR_TYPE_CHOICES)
-    year = models.IntegerField(validators=[MinValueValidator(2015), MaxValueValidator(2023)])
-    # Add any other fields, such as color or fuel type
+    type = models.CharField(max_length=10, choices=CAR_TYPES, default='SUV')
+    year = models.IntegerField(default=2023,
+        validators=[
+            MaxValueValidator(2023),
+            MinValueValidator(2015)
+        ])
+    # Other fields as needed
 
     def __str__(self):
-        return f"{self.name} ({self.year})"
+        return self.name  # Return the name as the string representation
