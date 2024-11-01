@@ -1,92 +1,142 @@
-/* General Modal Background */
+/* Modal Outer Container */
 .modalContainer {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.7);
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: fadeIn 0.3s ease-in-out;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 1000;
+  animation: fadeIn 0.3s ease-in-out;
 }
 
-/* Animation for Fade In */
+/* Fade-in Animation */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
 }
 
-/* Login Form Panel */
+/* Login Panel */
 .login_panel {
-  background: #ffffff;
+  position: relative;
+  width: 400px;
   padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
-  width: 100%;
-  max-width: 400px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  animation: slideIn 0.4s ease-out;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  animation: slideDown 0.4s ease-in-out;
 }
 
-@keyframes slideIn {
-  from { transform: translateY(-30px); opacity: 0; }
+/* Slide-down Animation */
+@keyframes slideDown {
+  from { transform: translateY(-20px); opacity: 0; }
   to { transform: translateY(0); opacity: 1; }
 }
 
-/* Input Fields */
+/* Input Group with Icon */
+.input-group {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.input-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  opacity: 0.7;
+}
+
+/* Input Field Styling */
 .input_field {
+  display: block;
   width: 100%;
-  padding: 12px;
-  margin: 8px 0;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  padding: 12px 12px 12px 42px;
   font-size: 1rem;
-  transition: border-color 0.3s;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  background-color: #fdfdfd;
+}
+
+/* Placeholder Styling */
+.input_field::placeholder {
+  color: #999; /* Placeholder color */
+  opacity: 1; /* Ensures the placeholder is fully opaque */
 }
 
 .input_field:focus {
   outline: none;
-  border-color: #4CAF50; /* Accent color on focus */
+  border-color: #4CAF50;
+  box-shadow: 0 0 6px rgba(76, 175, 80, 0.3);
 }
 
-/* Action Buttons */
+/* Button Styles */
 .action_button {
   background-color: #4CAF50;
-  color: #fff;
-  padding: 12px 20px;
-  margin: 10px 5px;
-  border: none;
-  border-radius: 4px;
+  color: white;
   font-size: 1rem;
+  padding: 10px;
+  width: 48%;
+  margin: 10px 1%;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  width: 100%;
-  max-width: 150px;
+  transition: background-color 0.3s, transform 0.2s ease;
 }
 
 .action_button:hover {
   background-color: #45A049;
+  transform: translateY(-2px);
 }
 
 .action_button:active {
-  transform: scale(0.98);
+  transform: translateY(0);
 }
 
-/* Register Link */
+/* Link Styling */
 .loginlink {
-  display: inline-block;
-  margin-top: 20px;
+  display: block;
+  margin-top: 1rem;
+  text-align: center;
   color: #4CAF50;
-  text-decoration: none;
   font-size: 0.9rem;
+  text-decoration: none;
   transition: color 0.3s;
 }
 
 .loginlink:hover {
   color: #388E3C;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 500px) {
+  .login_panel {
+      width: 90%;
+      padding: 1.5rem;
+  }
+  .action_button {
+      font-size: 0.9rem;
+      padding: 8px;
+  }
+}
+
+/* Modal Backdrop Styling */
+.modalBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

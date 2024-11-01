@@ -17,11 +17,11 @@
   </head>
   <body onload="checkSession()">
     <script>
-      let logout_url = window.location.origin+"/djangoapp/logout";
+    let logout_url = window.location.origin+"/djangoapp/logout";
     const res = await fetch(logout_url, {
       method: "GET",
     });
-  
+
     const json = await res.json();
     if (json) {
       let username = sessionStorage.getItem('username');
@@ -98,9 +98,9 @@
             <span class="navbar-text">
               <div class="loginlink" id="loginlogout">
                 <a href="/login" style="color: white; margin-right: 10px"
-                  >Login</a
+                  >Sign in</a
                 >
-                <a  href="/register" style="color: white">Register</a>
+                <a  href="/register" style="color: white">Sign Up</a>
               </div>
             </span>
           </div>

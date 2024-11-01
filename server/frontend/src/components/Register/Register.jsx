@@ -3,7 +3,6 @@ import "./Register.css";
 import userIcon from "../assets/person.png";
 import emailIcon from "../assets/email.png";
 import passwordIcon from "../assets/password.png";
-import closeIcon from "../assets/close.png";
 
 const Register = () => {
   const [userName, setUserName] = useState("");
@@ -52,9 +51,8 @@ const Register = () => {
     <div className="register-container">
       <div className="header">
         <span className="header-text">Sign Up</span>
-        <button className="close-button" onClick={goHome}>
-          <img src={closeIcon} alt="Close" />
-        </button>
+        {/* Updated close button to be similar to the (x) in the Login component */}
+        <span className="close-icon" onClick={goHome}>&times;</span>
       </div>
       <hr />
       <form onSubmit={register} className="register-form">
